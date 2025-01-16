@@ -36,7 +36,6 @@ public class Shop extends HashSet<Order> {
                             return orders;
                         }
                 ));
-
     }
 
     public Map<Customer, Double> es2() {
@@ -48,7 +47,7 @@ public class Shop extends HashSet<Order> {
                 ));
     }
 
-    public Double es4 () {
-        return null;
+    public Double es4() {
+        return this.stream().collect(Collectors.averagingDouble(order -> order.getTotal()));
     }
 }

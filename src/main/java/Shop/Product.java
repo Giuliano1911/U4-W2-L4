@@ -1,6 +1,7 @@
 package Shop;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Product {
     private final Long id;
@@ -56,6 +57,14 @@ public class Product {
                 Product::es3_,
                 Product::es3_
         );
+    }
+
+    public static Map<String, Double> es5(List<Product> products) {
+        return products.stream().collect(Collectors.toMap(
+                Product::getCategory,
+                Product::getPrice,
+                Double::sum
+        ));
     }
 
     @Override

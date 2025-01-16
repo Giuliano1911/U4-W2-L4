@@ -82,12 +82,6 @@ public class Order extends HashMap<Product, Integer> {
                 .sum();
     }
 
-    public Long getNumberOfProducts() {
-        return this.keySet().stream()
-                .mapToLong(this::get)
-                .count();
-    }
-
     @Override
     public String toString() {
         StringBuilder orders = new StringBuilder();
